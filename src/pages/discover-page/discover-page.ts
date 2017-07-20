@@ -7,6 +7,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { LoadingProvider } from "../../providers/loading";
 import { LocationProvider } from "../../providers/location";
 import { RegionPage } from "../region-page/region-page";
+import { RegionDetailPage } from "../region-detail-page/region-detail-page";
+import { WineryDetailPage } from "../winery-detail-page/winery-detail-page";
 
 
 declare var google: any;
@@ -71,8 +73,8 @@ export class DiscoverPage {
               let regionKey = location.region;
               this.locationProvider.getRegionById(location.region).subscribe(
                 (belongTo) => {
-                  let content = "<h6 id='wineryLink'><u><b>" + location.name + "</b></u></h6>" + 
-                                "<p id='regionLink'>Region: <u>" + belongTo.name + "</u></p>";
+                  let content = "<p><a id='wineryLink'><font size='3px'><b>" + location.name + "</b></font></a></p>" + 
+                                "<div id='regionLink'><u>" + belongTo.name + "</u> Wine Region</div>";
                   let params = {
                     content: content,
                     winery: wineryKey,
@@ -123,29 +125,31 @@ export class DiscoverPage {
 
   private createInfoWindow(marker, params): void {
 
-    let newContent = '<p id = "clickId"><font color="blue">Click</font></p>' + params.content;
+    // let newContent = '<p id = "clickId"><font color="blue">Click</font></p>' + params.content;
         
     google.maps.event.addListener(marker, 'click', () => {
 
-      this.cursorInfoWindow.setContent(newContent);
+      this.cursorInfoWindow.setContent(params.content);
       this.cursorInfoWindow.open(this.map, marker);
       
-      google.maps.event.addListenerOnce(this.cursorInfoWindow, 'domready', () => {
-        document.getElementById('clickId').addEventListener('click', () => {
-          this.navCtrl.push(RegionPage);
-          // alert('Clicked');
-        });
-      });
+      // google.maps.event.addListenerOnce(this.cursorInfoWindow, 'domready', () => {
+      //   document.getElementById('clickId').addEventListener('click', () => {
+      //     // alert('Clicked');
+      //   });
+      // });
 
       google.maps.event.addListenerOnce(this.cursorInfoWindow, 'domready', () => {
         document.getElementById('wineryLink').addEventListener('click', () => {
-          this.navCtrl.push(RegionPage);
+          this.navCtrl.push(WineryDetailPage, { 
+            wineryId: params.winery,
+            regionId: params.region
+           });
         });
       });
 
       google.maps.event.addListenerOnce(this.cursorInfoWindow, 'domready', () => {
         document.getElementById('regionLink').addEventListener('click', () => {
-          this.navCtrl.push(RegionPage);
+          this.navCtrl.push(RegionDetailPage, { regionId: params.region });
         });
       });
 

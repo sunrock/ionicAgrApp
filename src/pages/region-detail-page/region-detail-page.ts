@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LocationProvider } from "../../providers/location";
+import { FirebaseListObservable } from "angularfire2/database";
 
 @IonicPage()
 @Component({
@@ -9,7 +10,8 @@ import { LocationProvider } from "../../providers/location";
 })
 export class RegionDetailPage {
 
-  region: any;
+  private region: FirebaseListObservable<any>;
+  private searchRegionName: string;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,

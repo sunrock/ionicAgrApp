@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ContactPipe implements PipeTransform {
   // ContactPipe
-  // Filter contact by name or username.
+  // Filter contacts by name or username.
   transform(contacts: any[], search: string): any {
     if (!contacts) {
       return;

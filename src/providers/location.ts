@@ -24,8 +24,13 @@ export class LocationProvider {
     return this.angularfire.object('/regions/' + regionId);
   }
 
+  // Get all wineries  
   getWineries() {
     return this.angularfire.list('/wineries');     
+  }
+
+  getWineryById(wineryId) {
+    return this.angularfire.object('/wineries/' + wineryId);
   }
 
   

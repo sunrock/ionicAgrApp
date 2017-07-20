@@ -1,12 +1,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Region List</ion-title>
+    <ion-title>Wine Regions</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchRegionName" 
+    placeholder="Search" 
+    showCancelButton="true" 
+    cancelButtonText="Clear">
+  </ion-searchbar>
+  <ion-list>
+    <button ion-item 
+      *ngFor="let region of regions | regionFilter: searchRegionName" 
+      (click)="showRegionDetails(region.$key); $event.stopPropagation();">
+      <ion-thumbnail item-start>
+        <img *ngIf="!region.thumbnail" 
+              src="http://mountainvistawinery.com/wp-content/uploads/2015/01/barrel-450x450-450x450.png" />
+        <img *ngIf="region.thumbnail" 
+              src="{{ region.thumbnail }}" />
+      </ion-thumbnail>
+      <h2> {{ region.name }} </h2>
+    </button>
+  </ion-list>
 
 </ion-content>

@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LocationProvider } from "../../providers/location";
+import { RegionDetailPage } from "../region-detail-page/region-detail-page";
 
-/**
- * Generated class for the RegionListPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-region-list-page',
@@ -14,11 +10,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegionListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  regions: any;
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public locationProvider: LocationProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegionListPage');
+  }
+
+  ngOnInit() {
+    this.locationProvider.getRegions().subscribe(
+      (regionList) => {
+        this.regions = regionList;
+      }
+    );
+  }
+
+  showRegionDetails(regionKey) {
+    this.navCtrl.push(RegionDetailPage, { regionId: regionKey});
   }
 
 }

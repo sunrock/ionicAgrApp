@@ -4,10 +4,18 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'regionFilter',
 })
 export class RegionPipe implements PipeTransform {
-  /**
-   * Takes a value and makes it lowercase.
-   */
-  transform(value: string, ...args) {
-    return value.toLowerCase();
+  // RegionPipe
+  // Filter regions by region name.
+  transform(regions: any[], search: string): any {
+    if (!regions) {
+      return;
+    } else if (!search) {
+      return regions;
+    } else {
+      let term = search.toLowerCase();
+      return regions.filter(
+        region => region.name.toLowerCase().indexOf(term) > -1
+      );
+    }
   }
 }
