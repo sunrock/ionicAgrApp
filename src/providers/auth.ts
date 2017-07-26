@@ -24,7 +24,7 @@ export class AuthProvider {
               public alertProvider: AlertProvider,
               // public googleplus: GooglePlus,
               public zone: NgZone) {
-    console.log("Initializing Login Provider");
+    console.log("Login Provider");
     this.oauth = new OauthCordova();
     // Detect changes on the Firebase user and redirects the view depending on the user's status.
     firebase.auth().onAuthStateChanged((user) => {

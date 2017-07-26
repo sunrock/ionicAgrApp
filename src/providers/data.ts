@@ -9,7 +9,7 @@ export class DataProvider {
   // This is the provider class for most of the Firebase observables in the app.
 
   constructor(public angularfire: AngularFireDatabase) {
-    console.log("Initializing Data Provider");
+    console.log("Data Provider");
   }
 
   // Get all users

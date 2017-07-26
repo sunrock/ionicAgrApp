@@ -9,8 +9,8 @@ import { LocationProvider } from "../../providers/location";
 })
 export class WineryDetailPage {
 
-  region: any;
-  winery: any;
+  private region: any;
+  private winery: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,

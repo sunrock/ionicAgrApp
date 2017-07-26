@@ -6,7 +6,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { LoadingProvider } from "../../providers/loading";
 import { LocationProvider } from "../../providers/location";
-import { RegionPage } from "../region-page/region-page";
 import { RegionDetailPage } from "../region-detail-page/region-detail-page";
 import { WineryDetailPage } from "../winery-detail-page/winery-detail-page";
 
@@ -20,9 +19,9 @@ declare var google: any;
 })
 export class DiscoverPage {
 
-  map: any;
-  markers = [];
-  myMarker: any;
+  private map: any;
+  private markers = [];
+  private myMarker: any;
 
   cursorInfoWindow = new google.maps.InfoWindow();
   
@@ -42,7 +41,7 @@ export class DiscoverPage {
     });
   }
 
-  private initMap() {
+  initMap() {
 
     this.loadingProvider.show(CusConfig.loadingMsg);
 
@@ -92,7 +91,7 @@ export class DiscoverPage {
     });
   }  
   
-  private createMapMarker(place, params): void {
+  createMapMarker(place, params): void {
 
     var marker = new google.maps.Marker({
       map: this.map,
@@ -104,7 +103,7 @@ export class DiscoverPage {
 
   }
 
-  private createBlueDotMarker(place): void { 
+  createBlueDotMarker(place): void { 
     
     var marker = new google.maps.Marker({
       map: this.map,
@@ -123,7 +122,7 @@ export class DiscoverPage {
     this.myMarker = marker;
   }
 
-  private createInfoWindow(marker, params): void {
+  createInfoWindow(marker, params): void {
 
     // let newContent = '<p id = "clickId"><font color="blue">Click</font></p>' + params.content;
         
@@ -152,8 +151,7 @@ export class DiscoverPage {
           this.navCtrl.push(RegionDetailPage, { regionId: params.region });
         });
       });
-
-
+      
     });
   }
 

@@ -15,9 +15,11 @@ export class RequestProvider {
   // Request Provider
   // This is the provider class for managing requests.
 
-  constructor(public angularfire: AngularFireDatabase, public loadingProvider: LoadingProvider, 
-              public alertProvider: AlertProvider, public dataProvider: DataProvider) {
-    console.log("Initializing Request Provider");
+  constructor(public angularfire: AngularFireDatabase, 
+              public loadingProvider: LoadingProvider, 
+              public alertProvider: AlertProvider, 
+              public dataProvider: DataProvider) {
+    console.log("Request Provider");
   }
 
   // Send friend request to userId.

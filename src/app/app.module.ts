@@ -45,6 +45,12 @@ import { DateFormatPipe } from "../pipes/date";
 import { GroupPipe } from "../pipes/group";
 import { SearchPipe } from "../pipes/search";
 import { RegionPipe } from "../pipes/region";
+import { ContactInfoPage } from "../pages/contact-info-page/contact-info-page";
+import { ContactSearchPage } from "../pages/contact-search-page/contact-search-page";
+import { ContactListPage } from "../pages/contact-list-page/contact-list-page";
+import { ChatListPage } from "../pages/chat-list-page/chat-list-page";
+import { ChatMsgPage } from "../pages/chat-msg-page/chat-msg-page";
+import { RequestsPage } from "../pages/requests-page/requests-page";
 
 
 
@@ -67,13 +73,20 @@ firebase.initializeApp(CusConfig.firebaseConfig);
     TabsPage,
     LoginPage,
     VerificationPage,
-
     RegionPage,
+
     DiscoverPage,
     RegionDetailPage,
     WineryDetailPage,
     RegionListPage,
     WineryListPage,
+
+    ContactListPage,
+    ContactSearchPage,
+    ContactInfoPage,
+    ChatListPage,
+    ChatMsgPage,
+    RequestsPage,
   ],
   imports: [
     BrowserModule,
@@ -89,11 +102,19 @@ firebase.initializeApp(CusConfig.firebaseConfig);
     LoginPage,
     VerificationPage,
     RegionPage,
+
     DiscoverPage,
     RegionDetailPage,
     WineryDetailPage,
     RegionListPage,
     WineryListPage,
+
+    ContactListPage,
+    ContactSearchPage,
+    ContactInfoPage,
+    ChatListPage,
+    ChatMsgPage,
+    RequestsPage,
   ],
   providers: [
     StatusBar,

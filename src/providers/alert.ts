@@ -62,7 +62,7 @@ export class AlertProvider {
   private alert;
 
   constructor(public alertCtrl: AlertController) {
-    console.log("Initializing Alert Provider");
+    console.log("Alert Provider");
   }
 
   // Show profile updated

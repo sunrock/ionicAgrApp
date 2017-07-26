@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 import { AngularFireDatabase } from "angularfire2/database";
 
 @Injectable()
 export class LocationProvider {
 
   constructor(public angularfire: AngularFireDatabase) {
-    console.log('Hello Location Provider');
+    console.log('Location Provider');
   }
 
   // Get dummy data: locations

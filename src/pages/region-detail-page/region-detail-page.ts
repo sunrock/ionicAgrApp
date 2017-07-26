@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LocationProvider } from "../../providers/location";
-import { FirebaseListObservable } from "angularfire2/database";
 
 @IonicPage()
 @Component({
   selector: 'page-region-detail-page',
   templateUrl: 'region-detail-page.html',
 })
-export class RegionDetailPage {
+export class RegionDetailPage implements OnInit {
 
-  private region: FirebaseListObservable<any>;
+  private region: any;
   private searchRegionName: string;
 
   constructor(public navCtrl: NavController, 
@@ -20,6 +19,7 @@ export class RegionDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegionDetailPage');
+    this.searchRegionName = '';
   }
 
   ngOnInit() {

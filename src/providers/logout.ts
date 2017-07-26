@@ -11,7 +11,7 @@ export class LogoutProvider {
   // Before logout function can be used it's important to set the app to the Provider
   // by calling setApp(app) in the constructor of the controller that needs the logout functionality.
   constructor(public app: App, public loadingProvider: LoadingProvider) {
-    console.log("Initializing Logout Provider");
+    console.log("Logout Provider");
   }
 
   // Hooks the app to this provider, this is needed to clear the navigation views when logging out.

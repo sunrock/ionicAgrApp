@@ -9,7 +9,7 @@ export class LoadingProvider {
 
   private loading;
   constructor(private loadingController: LoadingController) {
-    console.log("Initializing Loading Provider");
+    console.log("Loading Provider");
   }
 
   //Show loading

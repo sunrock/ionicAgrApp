@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LocationProvider } from "../../providers/location";
 import { RegionDetailPage } from "../region-detail-page/region-detail-page";
@@ -8,9 +8,9 @@ import { RegionDetailPage } from "../region-detail-page/region-detail-page";
   selector: 'page-region-list-page',
   templateUrl: 'region-list-page.html',
 })
-export class RegionListPage {
+export class RegionListPage implements OnInit {
 
-  regions: any;
+  private regions: any[];
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -30,7 +30,7 @@ export class RegionListPage {
   }
 
   showRegionDetails(regionKey) {
-    this.navCtrl.push(RegionDetailPage, { regionId: regionKey});
+    this.navCtrl.push(RegionDetailPage, { regionId: regionKey });
   }
 
 }
