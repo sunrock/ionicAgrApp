@@ -1,12 +1,44 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>RequestsPage</ion-title>
+    <ion-title>Requests</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <!-- No requests sent or received. -->
+  <div class="empty-list" *ngIf="(reqRcv && reqRcv.length == 0) && (reqSent && reqSent.length == 0)">
+    <h1><ion-icon name="md-filing"></ion-icon></h1>
+    <p>No New Requests</p>
+    <button ion-button icon-left tappable (click)="back()"><ion-icon name="md-arrow-round-back"></ion-icon>Go Back</button>
+  </div>
+  <!-- Show requests received. -->
+  <ion-list class="avatar-list" *ngIf="reqRcv && reqRcv.length > 0">
+    <ion-item *ngFor="let requestRcv of reqRcv" no-lines tappable (click)="viewUser(requestRcv.$key)">
+      <ion-fab middle right>
+        <button ion-fab mini tappable (click)="acceptFriendRequest(requestRcv); $event.stopPropagation();">
+          <ion-icon name="md-checkmark-circle" class="success"></ion-icon>
+        </button>
+      </ion-fab>
+      <ion-avatar item-left>
+        <img src="{{ requestRcv.img }}">
+      </ion-avatar>
+      <h2>{{ requestRcv.name }}</h2>
+      <p>has sent you a friend request.</p>
+    </ion-item>
+  </ion-list>
+  <!-- Show requests sent. -->
+  <ion-list class="avatar-list" *ngIf="reqSent && reqSent.length > 0">
+    <ion-item *ngFor="let requestSent of reqSent" no-lines tappable (click)="viewUser(requestSent.$key)">
+      <ion-fab middle right>
+        <button ion-fab mini tappable (click)="cancelFriendRequest(requestSent); $event.stopPropagation();">
+          <ion-icon name="md-close-circle" class="danger"></ion-icon>
+        </button>
+      </ion-fab>
+      <ion-avatar item-left>
+        <img src="{{ requestSent.img }}">
+      </ion-avatar>
+      <h2>{{ requestSent.name }}</h2>
+      <p>friend request has been sent.</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

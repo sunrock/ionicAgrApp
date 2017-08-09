@@ -10,6 +10,7 @@ import { LoadingProvider } from "../../providers/loading";
 // pages
 import { ContactSearchPage } from "../contact-search-page/contact-search-page";
 import { RequestsPage } from "../requests-page/requests-page";
+import { ChatMsgPage } from "../chat-msg-page/chat-msg-page";
 
 
 @IonicPage()
@@ -90,6 +91,7 @@ export class ContactListPage implements OnInit{
 
   // // Proceed to chat page.
   sendMessages(userId) {
+    this.navCtrl.push(ChatMsgPage, { userId: userId });    
     // this.app.getRootNav().push(MessagePage, { userId: userId });
   }
 

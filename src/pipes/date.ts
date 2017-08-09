@@ -2,10 +2,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 import * as moment from 'moment';
 
 @Pipe({
-  name: 'dateFormat',
+  name: 'DateFormat',
 })
 export class DateFormatPipe implements PipeTransform {
-  // DatePipe
+  // DateFormatPipe
   // Show moment.js dateFormat for time elapsed.
   transform(date: any, args?: any): any {
     return moment(new Date(date)).fromNow();

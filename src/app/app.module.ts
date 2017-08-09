@@ -15,7 +15,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from "../pages/login-page/login-page";
 import { VerificationPage } from "../pages/verification-page/verification-page";
 
-import { RegionPage } from "../pages/region-page/region-page";
 import { DiscoverPage } from "../pages/discover-page/discover-page";
 
 import { RegionDetailPage } from "../pages/region-detail-page/region-detail-page";
@@ -51,6 +50,7 @@ import { ContactListPage } from "../pages/contact-list-page/contact-list-page";
 import { ChatListPage } from "../pages/chat-list-page/chat-list-page";
 import { ChatMsgPage } from "../pages/chat-msg-page/chat-msg-page";
 import { RequestsPage } from "../pages/requests-page/requests-page";
+import { ProfilePage } from "../pages/profile-page/profile-page";
 
 
 
@@ -73,7 +73,6 @@ firebase.initializeApp(CusConfig.firebaseConfig);
     TabsPage,
     LoginPage,
     VerificationPage,
-    RegionPage,
 
     DiscoverPage,
     RegionDetailPage,
@@ -87,6 +86,8 @@ firebase.initializeApp(CusConfig.firebaseConfig);
     ChatListPage,
     ChatMsgPage,
     RequestsPage,
+
+    ProfilePage,
   ],
   imports: [
     BrowserModule,
@@ -101,7 +102,6 @@ firebase.initializeApp(CusConfig.firebaseConfig);
     TabsPage,
     LoginPage,
     VerificationPage,
-    RegionPage,
 
     DiscoverPage,
     RegionDetailPage,
@@ -115,6 +115,8 @@ firebase.initializeApp(CusConfig.firebaseConfig);
     ChatListPage,
     ChatMsgPage,
     RequestsPage,
+
+    ProfilePage,
   ],
   providers: [
     StatusBar,

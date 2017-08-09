@@ -151,7 +151,6 @@ export class DiscoverPage {
           this.navCtrl.push(RegionDetailPage, { regionId: params.region });
         });
       });
-      
     });
   }
 
